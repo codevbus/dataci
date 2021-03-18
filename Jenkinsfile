@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.9.2' } }
+    agent { docker { image 'amancevice/pandas' } }
     stages {
         stage('build') {
             steps {
