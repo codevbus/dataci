@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('validate') {
             steps {
-                sh 'python validate.py'
+                sh 'python validate.py healthcare-dataset-stroke-data.csv'
             }
         }
-        stage('test') {
+        stage('cleanup') {
             steps {
-                sh 'python --version'
+                sh 'python cleanup.py'
             }
         }
         stage('deploy') {
             steps {
-                sh 'python --version'
+                sh 'python validate.py clean.csv'
             }
         }
     }
