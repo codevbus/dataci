@@ -17,4 +17,4 @@ df = df[df.bmi < 50]
 
 print("Creating new CSV file")
 
-df.to_csv('clean.csv')
+df.to_csv('clean.csv', index=False)
