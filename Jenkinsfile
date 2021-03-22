@@ -16,5 +16,10 @@ pipeline {
                 sh 'python validate.py clean.csv'
             }
         }
+        stage('vizualize') {
+            steps {
+                sh 'python vizualize.py'
+            }
+        }
     }
 }
