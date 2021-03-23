@@ -17,6 +17,7 @@ pipeline {
             }
         }
         stage('vizualize') {
+            agent { docker { image 'czentye/matplotlib-minimal ' } }
             steps {
                 sh 'python vizualize.py'
             }
