@@ -27,7 +27,7 @@ pipeline {
         }
         stage('vizualize') {
             agent {
-                docker { image 'czentye/matplotlib-minimal' }
+                docker { image 'matplotlib/mpl-docker' }
             }
             steps {
                 sh 'python vizualize.py'
