@@ -23,6 +23,7 @@ pipeline {
                 docker { image 'amancevice/pandas' }
             }
             steps {
+                unstash name: 'csv'
                 sh 'python validate.py clean.csv'
             }
         }
