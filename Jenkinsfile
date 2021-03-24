@@ -15,6 +15,7 @@ pipeline {
             }
             steps {
                 sh 'python cleanup.py'
+                stash includes: '*clean*'
             }
         }
         stage('deploy') {
