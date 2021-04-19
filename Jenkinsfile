@@ -29,7 +29,9 @@ pipeline {
         }
         stage('vizualize') {
             agent {
-                docker { image 'matplotlib/mpl-docker' }
+                dockerfile {
+                    filename 'Dockerfile'
+                }
             }
             steps {
                 sh 'python vizualize.py'
