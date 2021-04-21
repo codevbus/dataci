@@ -12,4 +12,4 @@ df = df[(df.stroke == 1)]
 df['gender'].value_counts().plot(kind='bar')
 
 plt.title("Stroke occurences by gender")
-plt.show()
+plt.savefig('output.png')
