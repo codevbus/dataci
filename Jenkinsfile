@@ -7,7 +7,6 @@ pipeline {
             }
             steps {
                 sh 'python validate.py healthcare-dataset-stroke-data.csv'
-                sh 'docker stop amancevice/pandas'
             }
         }
         stage('cleanup') {
@@ -17,7 +16,6 @@ pipeline {
             steps {
                 sh 'python cleanup.py'
                 stash includes: '*clean*', name: 'csv'
-                sh 'docker stop amancevice/pandas'
             }
         }
         stage('deploy') {
@@ -27,7 +25,6 @@ pipeline {
             steps {
                 unstash name: 'csv'
                 sh 'python validate.py clean.csv'
-                sh 'docker stop amancevice/pandas'
             }
         }
         stage('vizualize') {
