@@ -32,6 +32,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'output.png', onlyIfSuccessful: true
+            sh '/usr/bin/docker kill $(/usr/bin/docker ps -q)'
         }
     }
 }
