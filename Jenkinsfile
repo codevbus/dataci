@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('validate') {
             agent {
-                docker { image 'amancevice/pandas' }
+                dockerfile {
+                    filename 'Dockerfile'
+                }
             }
             steps {
                 sh 'python validate.py healthcare-dataset-stroke-data.csv'
@@ -11,7 +13,9 @@ pipeline {
         }
         stage('cleanup') {
             agent {
-                docker { image 'amancevice/pandas' }
+                dockerfile {
+                    filename 'Dockerfile'
+                }
             }
             steps {
                 sh 'python cleanup.py'
@@ -20,7 +24,9 @@ pipeline {
         }
         stage('deploy') {
             agent {
-                docker { image 'amancevice/pandas' }
+                dockerfile {
+                    filename 'Dockerfile'
+                }
             }
             steps {
                 unstash name: 'csv'
